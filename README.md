@@ -1,4 +1,4 @@
-# neutralino-ext-python
+# neutralino--ext-python
 **A Python Extension for Neutralino**
 
 This extension adds a Python3 backend to Neutralino with the following features:
@@ -14,7 +14,7 @@ This extension adds a Python3 backend to Neutralino with the following features:
 ## Run the demo
 The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Python, which replies with Pong.
 
-Before running the demo, update the path to your Python interpreter in the **neutralino.config.json** file:
+Before running the demo, adapt the path to your Python interpreter in the **neutralino.config.json** file:
 
 Replace this:
 ```json
@@ -37,7 +37,7 @@ with e.g.
   ]
 ```
 
-When including the extension in your own project, make sure that your config file contains this:
+When including the extension in your own project, make sure that your config contains this whitelist:
 ```json
   "nativeAllowList": [
     "app.*",
