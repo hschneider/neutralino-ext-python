@@ -144,7 +144,7 @@ The **PythonExtension class** takes only 1 argument which instructs it to run in
 
 The **pingResult event handler** listens to messages with the same name, sent by sendMessage() on Python's side. 
 
-In **index.html**, you can see how to send data from Neutralino to Python,m which is dead simple:
+In **index.html**, you can see how to send data from Neutralino to Python, which is dead simple:
 ```html
 <a href="#" onclick="PYTHON.run('ping', 'Neutralino says PING!');">Send PING to Python</a><br>
 ```
