@@ -66,7 +66,7 @@ Just follow these steps:
 - Add **event listeners to main.js**, to fetch data from Python.
 - Add **PYTHON.run(function_name, data) to main.js** to submit data to Python.
 
-## main.py explained
+## Python: main.py explained
 
 ```Python
 from NeutralinoExtension import *
@@ -119,7 +119,7 @@ This makes debugging easier, since you can track the data flow between Neutralin
 
 ![Debug Python](https://marketmix.com/git-assets/neutralino-ext-python/debug-python.jpg)
 
-## main.js explained
+## Neutralino: main.js explained
 ```Javascript
 
 async function onPingResult(e) {

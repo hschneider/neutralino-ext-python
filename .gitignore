@@ -22,3 +22,5 @@ main
 __pycache__
 /extensions/python/_interpreter
 /Builds\ -\ NeutralinoEngine
+
+.DS_Store
