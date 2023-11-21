@@ -9,7 +9,7 @@ This extension adds a Python3 backend to Neutralino with the following features:
 - All events are queued, so none will be missed during processing.
 - Track the data flow between Neutralino and Python in realtime.
 
-![neutralino-python-extension](https://github.com/hschneider/neutralino-ext-python/assets/4845997/4bf90771-ad56-416c-b66a-e2e5b25c3553)
+![Neutralino Python Extension](https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-extension.gif)
 
 ## Run the demo
 The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Python, which replies with Pong.
@@ -117,7 +117,7 @@ if the requested function is named ping, we call the ping-function which sends a
 The **DEBUG** variable tells the NeutralinoExtension to report each event to the console. Incoming events, incoming function calls and outgoing messages are printed in different colors.
 This makes debugging easier, since you can track the data flow between Neutralino and Python:
 
-![2023-11-21_14-16-35](https://github.com/hschneider/neutralino-ext-python/assets/4845997/8662d8d2-4c4d-466d-89b1-2e0be264beef)
+![Debug Python](https://marketmix.com/git-assets/neutralino-ext-python/debug-python.jpg)
 
 ## main.js explained
 ```Javascript
@@ -140,7 +140,7 @@ The last line initializes the JavaScript part of the Python extension. It's impo
 
 The **PythonExtension class** takes only 1 argument which instructs it to run in debug mode (here true). In this mode, all data from the Python extension is printed to the dev-console:
 
-![2023-11-21_14-20-36](https://github.com/hschneider/neutralino-ext-python/assets/4845997/fb119093-c75d-40fd-978f-6c6556b2e5de)
+![Debug Meutralino](https://marketmix.com/git-assets/neutralino-ext-python/debug-neutralino.jpg)
 
 The **pingResult event handler** listens to messages with the same name, sent by sendMessage() on Python's side. 
 
