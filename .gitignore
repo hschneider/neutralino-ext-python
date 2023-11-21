@@ -1,6 +1,8 @@
 # Developer tools' files
 .lite_workspace.lua
 .idea
+.gitignore
+.gitattributes
 
 # Neutralinojs binaries and builds
 /bin
