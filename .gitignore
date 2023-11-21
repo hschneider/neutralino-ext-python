@@ -1,0 +1,22 @@
+# Developer tools' files
+.lite_workspace.lua
+.idea
+
+# Neutralinojs binaries and builds
+/bin
+/dist
+
+# Neutralinojs client (minified)
+neutralino.js
+
+# Neutralinojs related files
+.storage
+.tmp
+*.log
+
+resources.neu
+main
+*.xojo_xml_project
+__pycache__
+/extensions/python/_interpreter
+/Builds\ -\ NeutralinoEngine
