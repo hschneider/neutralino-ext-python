@@ -15,14 +15,7 @@
     "enabled": false,
     "writeToLogFile": false
   },
-  "nativeAllowList": [
-    "app.*",
-    "os.*",
-    "window.*",
-    "events.*",
-    "extensions.*",
-    "debug.log"
-  ],
+*
   "globalVariables": {},
   "modes": {
     "window": {

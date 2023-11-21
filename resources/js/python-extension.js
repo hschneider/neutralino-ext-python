@@ -22,7 +22,7 @@ class PythonExtension {
         }
 
         if(self.debug) {
-            console.log(`Calling ${ext}.${event} : ` + JSON.stringify(data));
+            console.log(`EXT_PYTHON: Calling ${ext}.${event} : ` + JSON.stringify(data));
         }
 
         await Neutralino.extensions.dispatch(ext, event, data);
@@ -37,7 +37,7 @@ class PythonExtension {
         let event = 'appClose';
 
         if(self.debug) {
-            console.log(`Calling ${ext}.${event}`);
+            console.log(`EXT_PYTHON: Calling ${ext}.${event}`);
         }
         await Neutralino.extensions.dispatch(ext, event, "");
         await Neutralino.app.exit();
