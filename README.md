@@ -13,6 +13,7 @@ This extension adds a Python3 backend to Neutralino with the following features:
 
 ## Run the demo
 The demo opens a Neutralino app. Clicking on the blue link sends a Ping to Python, which replies with Pong.
+This illustrates the data-flow in both directions. 
 
 Before running the demo, adapt the path to your Python interpreter in the **neutralino.config.json** file:
 
@@ -66,7 +67,7 @@ Just follow these steps:
 - Add **event listeners to main.js**, to fetch data from Python.
 - Add **PYTHON.run(function_name, data) to main.js** to submit data to Python.
 
-## Python: main.py explained
+## main.py explained
 
 ```Python
 from NeutralinoExtension import *
@@ -119,7 +120,7 @@ This makes debugging easier, since you can track the data flow between Neutralin
 
 ![Debug Python](https://marketmix.com/git-assets/neutralino-ext-python/debug-python.jpg)
 
-## Neutralino: main.js explained
+## main.js explained
 ```Javascript
 
 async function onPingResult(e) {

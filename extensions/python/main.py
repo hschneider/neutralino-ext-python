@@ -24,8 +24,8 @@ def processAppEvent(data):
     if data['event'] == 'runPython':
         (f, d) = ext.parseFunctionCall(data)
 
-        # Process incoming method calls:
-        # m: method name, d: data as JSON or string
+        # Process incoming function calls:
+        # f: function-name, d: data as JSON or string
         #
         if f == 'ping':
             ping(d)
