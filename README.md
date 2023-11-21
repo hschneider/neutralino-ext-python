@@ -1,4 +1,4 @@
-# neutralino--ext-python
+# neutralino-ext-python
 **A Python Extension for Neutralino**
 
 This extension adds a Python3 backend to Neutralino with the following features:
