@@ -15,7 +15,6 @@
     "enabled": false,
     "writeToLogFile": false
   },
-*
   "globalVariables": {},
   "modes": {
     "window": {
