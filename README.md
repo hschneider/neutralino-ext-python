@@ -9,6 +9,8 @@ This extension adds a Python3 backend to Neutralino with the following features:
 - All communication between Neutralino and Python runs asynchronously.
 - All events are queued, so none will be missed during processing.
 - Track the data flow between Neutralino and Python in realtime.
+- Works in Window- and headless Cloud-Mode.
+- Terminates the Python interpreter when the Neutralino app quits.
 
 ![Neutralino Python Extension](https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-extension.gif)
 
