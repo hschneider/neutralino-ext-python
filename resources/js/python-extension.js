@@ -6,8 +6,8 @@
 
 class PythonExtension {
     constructor(debug=false) {
-        this.version = '1.0.9';
-        self.debug = debug;
+        this.version = '1.1.0';
+        this.debug = debug;
     }
     async run(f, p=null) {
         //
@@ -21,7 +21,7 @@ class PythonExtension {
             parameter: p
         }
 
-        if(self.debug) {
+        if(this.debug) {
             console.log(`EXT_PYTHON: Calling ${ext}.${event} : ` + JSON.stringify(data));
         }
 
@@ -36,7 +36,7 @@ class PythonExtension {
         let ext = 'extPython';
         let event = 'appClose';
 
-        if(self.debug) {
+        if(this.debug) {
             console.log(`EXT_PYTHON: Calling ${ext}.${event}`);
         }
         await Neutralino.extensions.dispatch(ext, event, "");
