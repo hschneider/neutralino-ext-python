@@ -167,7 +167,7 @@ Below this link, you see
 ```
 **PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
 
-## Methods overview
+## Classes overview
 
 ### NeutralinoExtension.py
 
