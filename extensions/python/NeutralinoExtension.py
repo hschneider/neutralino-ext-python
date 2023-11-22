@@ -138,7 +138,7 @@ class NeutralinoExtension:
         """
         Log messages to terminal.
         :param msg: Message string
-        :param tag: Tape of log entry
+        :param tag: Type of log entry
         :return: --
         """
 

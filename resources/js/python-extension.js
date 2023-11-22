@@ -31,7 +31,7 @@ class PythonExtension {
     async stop() {
         //
         // Stop and quit the Python extension and its parent app.
-        // Use this if Neutralino runs in Cloud Mode.
+        // Use this if Neutralino runs in Cloud-Mode.
 
         let ext = 'extPython';
         let event = 'appClose';

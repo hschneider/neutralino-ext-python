@@ -167,6 +167,24 @@ Below this link, you see
 ```
 **PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
 
+## Python methods overview
+
+| Method                      | Description                                                                                                                     |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| NeutralinoExtension(debug)  | Extension class. debug: Print data flow to the terminal.                                                                        |
+| debugLog(msg, tag="info")   | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
+| parseFunctionCall(d)        | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
+| async run(onReceiveMessage) | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
+| sendMessage(event, data)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
+
+## Neutralino methods overview
+
+| Method                       | Description                                                                                       |
+|------------------------------|---------------------------------------------------------------------------------------------------|
+| PythonExtension(debug=false) | Extension class. debug: Print data flow to the dev console.                                       |
+| async run(f, p=null)         | Call a Python function. f: Function-name, p: Data package as string or JSON.                      |
+| async stop()                 | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+
 ## More about Neutralino
 [Neutralino Home](https://neutralino.js.org) 
 
