@@ -73,8 +73,8 @@ Just follow these steps:
 - Copy **resources/js/python-extension.js** to **resources/js**.
 - Add `<script src="js/python-extension.js"></script>` to your **index.html**
 - Add `const PYTHON = new PythonExtension(true)` to your **main.js**
-- Add **event listeners to main.js**, to fetch data from Python.
-- Add **PYTHON.run(function_name, data) to main.js** to submit data to Python.
+- Add **PYTHON.run(function_name, data) to main.js** to run Python functions from Neutralino.
+- Add **event listeners to main.js**, to fetch result data from Python.
 
 ## main.py explained
 
@@ -99,8 +99,8 @@ def processAppEvent(data):
     if data['event'] == 'runPython':
         (f, d) = ext.parseFunctionCall(data)
 
-        # Process incoming method calls:
-        # m: method name, d: data as JSON or string
+        # Process incoming function calls:
+        # f: function name, d: data as JSON or string
         #
         if f == 'ping':
             ping(d)
