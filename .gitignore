@@ -23,6 +23,3 @@ __pycache__
 /extensions/python/_interpreter
 /Builds\ -\ NeutralinoEngine
 .DS_Store
-.gitignore
-.gitattributes
-.github
