@@ -161,6 +161,10 @@ In **index.html**, you can see how to send data from Neutralino to Python, which
 - The Python function to call, here "ping"
 - The data package to submit, either as string or JSON.
 
+Below this link, you see
+```html
+<a id="link-quit" href="#" onclick="PYTHON.stop();" style="display:none">Quit</a>
+```
 **PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
 
 ## More about Neutralino
