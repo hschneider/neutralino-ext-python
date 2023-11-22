@@ -18,7 +18,7 @@ class NeutralinoExtension:
 
     def __init__(self, debug=False):
 
-        self.version = "1.1.5"
+        self.version = "1.1.6"
 
         parser = ArgumentParser()
         parser.add_argument('--nl-port')
@@ -41,7 +41,7 @@ class NeutralinoExtension:
         self.termOnWindowClose = True   # Terminate on windowCloseEvent message
         self.debugLog(f"{self.idExtension} running on port {self.port}")
 
-    def sendMessage(self, event, data):
+    def sendMessage(self, event, data=None):
         """
         Add a data package to the sending queue.
         Triggers an event in the parent app.

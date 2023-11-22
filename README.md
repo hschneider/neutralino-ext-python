@@ -169,13 +169,13 @@ Below this link, you see
 
 ## Python methods overview
 
-| Method                      | Description                                                                                                                     |
-|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| NeutralinoExtension(debug)  | Extension class. debug: Print data flow to the terminal.                                                                        |
-| debugLog(msg, tag="info")   | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
-| parseFunctionCall(d)        | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
-| async run(onReceiveMessage) | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
-| sendMessage(event, data)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
+| Method                           | Description                                                                                                                     |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
+| debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
+| parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
+| async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
+| sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
 
 ## Neutralino methods overview
 
