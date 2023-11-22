@@ -50,8 +50,14 @@ When including the extension in your own project, make sure that your config con
   ],
 ```
 
-After the config has been saved, run these commands in the ext-python folder:
+Next, prepare your Python environment with:
+```commandline
+# python3 -m pip install --no-binary :all: simple-websocket
+# python3 -m pip install --no-binary :all: simple-websocket-server
 ```
+
+After this, run these commands in the ext-python folder:
+```commandline
 neu update
 neu run
 ```
