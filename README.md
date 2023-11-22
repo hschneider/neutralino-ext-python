@@ -2,6 +2,7 @@
 **A Python Extension for Neutralino**
 
 This extension adds a Python3 backend to Neutralino with the following features:
+- Requires only a few lines of code on both ends.
 - Read all events from the Neutralino app in your Python code.
 - Run Python functions from Neutralino.
 - Run Neutralino functions from Python.
