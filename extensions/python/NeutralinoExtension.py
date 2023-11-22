@@ -15,7 +15,6 @@ from queue import Queue
 
 
 class NeutralinoExtension:
-
     def __init__(self, debug=False):
 
         self.version = "1.1.6"
@@ -39,6 +38,7 @@ class NeutralinoExtension:
         self.qSend = Queue()
 
         self.termOnWindowClose = True   # Terminate on windowCloseEvent message
+
         self.debugLog(f"{self.idExtension} running on port {self.port}")
 
     def sendMessage(self, event, data=None):
