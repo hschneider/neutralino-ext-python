@@ -167,7 +167,9 @@ Below this link, you see
 ```
 **PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
 
-## Python methods overview
+## Methods overview
+
+### NeutralinoExtension.py
 
 | Method                           | Description                                                                                                                     |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -177,7 +179,7 @@ Below this link, you see
 | async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
 | sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
 
-## Neutralino methods overview
+### python-extension.js
 
 | Method                       | Description                                                                                       |
 |------------------------------|---------------------------------------------------------------------------------------------------|
