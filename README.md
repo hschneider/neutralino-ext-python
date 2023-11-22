@@ -181,7 +181,7 @@ Below this link, you see
 
 | Method                       | Description                                                                                       |
 |------------------------------|---------------------------------------------------------------------------------------------------|
-| PythonExtension(debug=false) | Extension class. debug: Print data flow to the dev console.                                       |
+| PythonExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.                                       |
 | async run(f, p=null)         | Call a Python function. f: Function-name, p: Data package as string or JSON.                      |
 | async stop()                 | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
 
