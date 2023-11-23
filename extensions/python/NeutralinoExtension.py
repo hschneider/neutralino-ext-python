@@ -17,7 +17,7 @@ from queue import Queue
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.1.7"
+        self.version = "1.1.8"
 
         parser = ArgumentParser()
         parser.add_argument('--nl-port')
@@ -128,9 +128,9 @@ class NeutralinoExtension:
         # p can be JSON or string
         #
         try:
-            d = json.loads(p)
+            p = json.loads(p)
         except:
-            d = p
+            pass
 
         return f, p
 
