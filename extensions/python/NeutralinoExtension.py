@@ -17,7 +17,7 @@ from queue import Queue
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.1.6"
+        self.version = "1.1.7"
 
         parser = ArgumentParser()
         parser.add_argument('--nl-port')
@@ -101,7 +101,7 @@ class NeutralinoExtension:
                         msg = json.loads(msg)
                         onReceiveMessage(msg)
                     except:
-                        pass
+                        onReceiveMessage(msg)
 
         except (KeyboardInterrupt, EOFError, ConnectionClosed):
             await self.socket.close()
