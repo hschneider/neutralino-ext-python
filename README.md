@@ -1,3 +1,11 @@
+<p align="center">
+<img src="https://marketmix.com/git-assets/star-me-green-2.png">
+</p>
+
+<p align="center">
+<img src="https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-header.png" style="margin-left:auto;margin-right:auto">
+</p>
+
 # neutralino-ext-python
 **A Python Extension for Neutralino**
 
