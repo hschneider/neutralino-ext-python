@@ -198,4 +198,4 @@ Below this link, you see
 
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
-<img src="https://marketmix.com/git-assets/star-me.svg" style="max-width:275px">
+<img src="https://marketmix.com/git-assets/star-me.svg">
