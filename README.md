@@ -1,8 +1,4 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/star-me-green-2.png">
-</p>
-
-<p align="center">
 <img src="https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-header.png" style="margin-left:auto;margin-right:auto">
 </p>
 
@@ -202,3 +198,6 @@ Below this link, you see
 
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
+<p align="center">
+<img src="https://marketmix.com/git-assets/star-me-green-2.png">
+</p>
