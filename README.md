@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-header-2.png" style="margin-left:auto;margin-right:auto">
+<img src="https://marketmix.com/git-assets/neutralino-ext-python/neutralino-python-header.svg" style="margin-left:auto;margin-right:auto">
 </p>
 
 # neutralino-ext-python
