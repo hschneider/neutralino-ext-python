@@ -2,7 +2,7 @@
 #
 # Neutralino PythonExtension.
 #
-# (c)2023 Harald Schneider
+# (c)2023 Harald Schneider - marketmix.com
 
 from NeutralinoExtension import *
 

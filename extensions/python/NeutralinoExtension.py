@@ -6,7 +6,7 @@
 # pypy -m pip install --no-binary :all: simple-websocket
 # pypy -m pip install --no-binary :all: simple-websocket-server
 #
-# (c)2023 Harald Schneider
+# (c)2023 Harald Schneider - marketmix.com
 
 from argparse import *
 import uuid, json, time, asyncio, sys, os, signal, subprocess
