@@ -181,7 +181,7 @@ Below this link, you see
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
 | debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
-| isEvent(e, eventName)            | Checks if the incoming data package contains a particular event.                                                                |
+| isEvent(e, eventName)            | Checks if the incoming event data package contains a particular event.                                                          |
 | parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
 | async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
 | sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
