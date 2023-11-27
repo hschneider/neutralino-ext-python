@@ -93,15 +93,15 @@ def ping(d):
 
     ext.sendMessage('pingResult', f'Python says PONG, in reply to "{d}"')
 
-def processAppEvent(data):
+def processAppEvent(d):
     """
     Handle Neutralino app events.
-    :param data: data package as JSON dict.
+    :param d: data package as JSON dict.
     :return: ---
     """
 
-    if 'event' in data and data['event'] == 'runPython':
-        (f, d) = ext.parseFunctionCall(data)
+    if ext.isEvent(d, 'runPython'):
+        (f, d) = ext.parseFunctionCall(d)
 
         # Process incoming function calls:
         # f: function name, d: data as JSON or string
@@ -181,6 +181,7 @@ Below this link, you see
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
 | debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
+| isEvent(data, eventName)         | Checks if the incoming data package contains a particular event.                                                                |
 | parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
 | async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
 | sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |

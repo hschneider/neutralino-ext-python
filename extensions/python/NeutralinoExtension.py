@@ -17,7 +17,7 @@ from queue import Queue
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.1.8"
+        self.version = "1.1.9"
 
         parser = ArgumentParser()
         parser.add_argument('--nl-port')
@@ -133,6 +133,17 @@ class NeutralinoExtension:
             pass
 
         return f, p
+
+    def isEvent(self, e, eventName):
+        """
+        Check if e contains a particular event.
+        :param e: Event data package as dict.
+        :param eventName: Event name as string
+        :return: Boolean
+        """
+        if 'event' in e and e['event'] == eventName:
+            return True
+        return False
 
     def debugLog(self, msg, tag="info"):
         """

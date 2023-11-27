@@ -1,4 +1,4 @@
-# main.py 1.0.1
+# main.py 1.0.2
 #
 # Neutralino PythonExtension.
 #
@@ -14,15 +14,15 @@ def ping(d):
 
     ext.sendMessage('pingResult', f'Python says PONG, in reply to "{d}"')
 
-def processAppEvent(data):
+def processAppEvent(d):
     """
     Handle Neutralino app events.
-    :param data: data package as JSON dict.
+    :param d: data package as JSON dict.
     :return: ---
     """
 
-    if 'event' in data and data['event'] == 'runPython':
-        (f, d) = ext.parseFunctionCall(data)
+    if ext.isEvent(d, 'runPython'):
+        (f, d) = ext.parseFunctionCall(d)
 
         # Process incoming function calls:
         # f: function-name, d: data as JSON or string
