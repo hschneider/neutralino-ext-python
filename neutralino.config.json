@@ -50,5 +50,19 @@
       "commandDarwin": "${NL_PATH}/extensions/python/_interpreter/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
       "commandWindows": "${NL_PATH}/extensions/python/_interpreter/pypy3/pypy.exe ${NL_PATH}/extensions/python/main.py"
     }
-  ]
+  ],
+  "buildScript": {
+    "mac": {
+      "architecture": ["x64", "arm64", "universal"],
+      "minimumOS": "10.13.0",
+      "appName":  "ExtPythonDemo",
+      "appBundleName":    "ExtPythonDemo",
+      "appIdentifier":    "com.marketmix.ext.python.demo",
+      "appIcon":  "icon.icns"
+    },
+    "win": {
+      "architecture": ["x64"],
+      "appName":  "ExtPythonDemo.exe"
+    }
+  }
 }

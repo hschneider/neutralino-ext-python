@@ -23,3 +23,6 @@ __pycache__
 /extensions/python/_interpreter
 /Builds\ -\ NeutralinoEngine
 .DS_Store
+_app_scaffolds
+build-mac.sh
+postproc-mac.sh

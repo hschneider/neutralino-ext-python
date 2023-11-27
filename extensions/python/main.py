@@ -21,7 +21,7 @@ def processAppEvent(data):
     :return: ---
     """
 
-    if data['event'] == 'runPython':
+    if 'event' in data and data['event'] == 'runPython':
         (f, d) = ext.parseFunctionCall(data)
 
         # Process incoming function calls:
