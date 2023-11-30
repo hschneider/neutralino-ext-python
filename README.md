@@ -197,6 +197,8 @@ Below this link, you see
 ## More about Neutralino
 [NeutralinoJS Home](https://neutralino.js.org) 
 
+[**Neutralino Build Automation for macOS, Windows, Linux**](https://github.com/hschneider/neutralino-build-scripts)
+
 [Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
 
 <img src="https://marketmix.com/git-assets/star-me-2.svg">
