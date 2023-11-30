@@ -195,10 +195,11 @@ Below this link, you see
 | async stop()                 | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
 
 ## More about Neutralino
-[NeutralinoJS Home](https://neutralino.js.org) 
+- <u>[NeutralinoJS Home](https://neutralino.js.org)</u> 
+- <u>[Neutralino Build Automation for macOS, Windows, Linux](https://github.com/hschneider/neutralino-build-scripts)</u>
 
-[Neutralino Build Automation for macOS, Windows, Linux](https://github.com/hschneider/neutralino-build-scripts)
+- <u>[Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)</u>
 
-[Neutralino related blog posts at marketmix.com](https://marketmix.com/de/tag/neutralinojs/)
+
 
 <img src="https://marketmix.com/git-assets/star-me-2.svg">
