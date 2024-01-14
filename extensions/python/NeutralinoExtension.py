@@ -6,7 +6,7 @@
 # pypy -m pip install --no-binary :all: simple-websocket
 # pypy -m pip install --no-binary :all: simple-websocket-server
 #
-# (c)2023 Harald Schneider - marketmix.com
+# (c)2023-2024 Harald Schneider - marketmix.com
 
 from argparse import *
 import uuid, json, time, asyncio, sys, os, signal, subprocess
@@ -17,13 +17,7 @@ from queue import Queue
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.1.9"
-
-        parser = ArgumentParser()
-        parser.add_argument('--nl-port')
-        parser.add_argument('--nl-token')
-        parser.add_argument('--nl-extension-id')
-        args = parser.parse_args()
+        self.version = "1.2.1"
 
         self.debug = debug
         self.debugTermColors = True             # Use terminal colors
@@ -31,15 +25,40 @@ class NeutralinoExtension:
         self.debugTermColorCALL = "\033[91m"    # Red: Incoming function calls
         self.debugTermColorOUT = "\033[33m"     # Yellow: Outgoing events
 
-        self.port = args.nl_port
-        self.token = args.nl_token
-        self.idExtension = args.nl_extension_id
-        self.urlSocket = f"ws://127.0.0.1:{self.port}?extensionId={self.idExtension}"
+        if len(sys.argv) > 1:
+            parser = ArgumentParser()
+            parser.add_argument('--nl-port')
+            parser.add_argument('--nl-token')
+            parser.add_argument('--nl-extension-id')
+            args = parser.parse_args()
+
+            self.port = args.nl_port
+            self.token = args.nl_token
+            self.idExtension = args.nl_extension_id
+            self.connectToken = ''
+            self.urlSocket = f"ws://127.0.0.1:{self.port}?extensionId={self.idExtension}"
+        else:
+            conf = json.loads(sys.stdin.read())
+            self.port = conf['nlPort']
+            self.token = conf['nlToken']
+            self.idExtension = conf['nlExtensionId']
+            self.connectToken = conf['nlConnectToken']
+            self.urlSocket = f"ws://127.0.0.1:{self.port}?extensionId={self.idExtension}&connectToken={self.connectToken}"
+
+            self.debugLog('---')
+            self.debugLog("Received extension config via stdin:")
+            self.debugLog(json.dumps(conf, indent=4))
+            self.debugLog('---')
+            self.debugLog('WebSocket URL is:')
+            self.debugLog(self.urlSocket)
+
         self.qSend = Queue()
 
         self.termOnWindowClose = True   # Terminate on windowCloseEvent message
 
+        self.debugLog('---')
         self.debugLog(f"{self.idExtension} running on port {self.port}")
+        self.debugLog('---')
 
     def sendMessage(self, event, data=None):
         """
@@ -104,6 +123,7 @@ class NeutralinoExtension:
                         onReceiveMessage(msg)
 
         except (KeyboardInterrupt, EOFError, ConnectionClosed):
+            self.debugLog('WebSocket closed.')
             await self.socket.close()
 
     def parseFunctionCall(self, d):
