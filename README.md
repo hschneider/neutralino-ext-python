@@ -150,7 +150,7 @@ Neutralino.events.on("pingResult", onPingResult);
 const PYTHON = new PythonExtension(true)
 ```
 
-The last line initializes the JavaScript part of the Python extension. It's important to place this after Neutralino.init() and after all event handlers have been installed. Put it in the last line of your code and you are good to go. The const **PYTHON** is accessible globally.
+The last line initializes the JavaScript part of the Python extension. It's important to place this after Neutralino.init() and after all event handlers have been installed. Put it in the last line of your code and you are good to go. The const **PYTHON** is accessible globally and **must not be renamed.**
 
 The **PythonExtension class** takes only 1 argument which instructs it to run in debug mode (here true). In this mode, all data from the Python extension is printed to the dev-console:
 
