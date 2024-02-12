@@ -19,7 +19,9 @@ function test() {
 //
 document.getElementById('link-long-run')
     .addEventListener('click', () => {
-       PYTHON.run('longRun')
+    if(PYTHON.pollSigStop) {
+        PYTHON.run('longRun')
+    }
 });
 
 // Init Neutralino
