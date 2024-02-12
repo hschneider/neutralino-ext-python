@@ -15,6 +15,13 @@ function test() {
     msg.innerHTML += "Test from Xojo ...." + '<br>';
 }
 
+// Start single instance of long running task.
+//
+document.getElementById('link-long-run')
+    .addEventListener('click', () => {
+       PYTHON.run('longRun')
+});
+
 // Init Neutralino
 //
 Neutralino.init();

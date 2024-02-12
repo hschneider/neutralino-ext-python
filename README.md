@@ -173,28 +173,78 @@ Below this link, you see
 ```
 **PYTHON.stop()** is only required, when running Neutralino in cloud-mode. This will unload the Python extension gracefully.
 
+### Long-running tasks and their progress
+
+For details how to start a long-running background task in Python and how to poll its progress,
+see the comments in `extensions/python/main.py`and `resources/js/main.js`.
+
+before a new task is spawned, Python sends a **startPolling-message** to the frontend. 
+As a result, the frontend sends a **poll-message** every 500 ms.
+
+All progress-messages of the long-running task are stored in a queue.
+Before the task ends, it pushes a **stopPolling-message** to the queue:
+
+```mermaid
+graph LR;
+  id[stopPolling]-->id2[Progress 3/3];
+  id2[Progress 3/3]-->id3[Progress 2/3];
+  id3[Progress 2/3]-->id4[Progress 1/3];
+```
+
+Each incoming **poll-message** forces Rust to stop listening on the WebSocket and processing 
+the queue instead. When the **stopPolling-message** is sent back, the frontend stops polling.
+
 ## Classes overview
 
 ### NeutralinoExtension.py
 
-| Method                           | Description                                                                                                                     |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.                                                                        |
-| debugLog(msg, tag="info")        | Write a message to the terminal. msg: Message, tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
-| isEvent(e, eventName)            | Checks if the incoming event data package contains a particular event.                                                          |
-| parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).                                  |
-| async run(onReceiveMessage)      | Starts the sockethandler main loop. onReceiveMessage: Callback function for incoming messages.                                  |
-| sendMessage(event, data=None)    | Send a message to Neutralino. event: Event-name, data: Data package as string or JSON dict.                                     |
+NeutralinoExtension Class:
+
+| Method                           | Description                                                  |
+| -------------------------------- | ------------------------------------------------------------ |
+| NeutralinoExtension(debug=false) | Extension class. debug: Print data flow to the terminal.     |
+| debugLog(msg, tag="info")        | Write a message to the terminal.<br />msg: Message<br />tag: The message type, "in" for incoming, "out" for outgoing, "info" for others. |
+| isEvent(d, e)                    | Checks if the incoming event data package contains a particular event.<br />d: Data-package<br />e: Event-name |
+| parseFunctionCall(d)             | Extracts function-name (f) and parameter-data (p) from a message data package. Returns (f, p).<br />d: Data-package. |
+| async run(onReceiveMessage)      | Starts the sockethandler main loop. <br />onReceiveMessage: Callback function for incoming messages. |
+| runThread(f, t, d):              | Starts a background task. <br />f: Task-function<br />t: Task-name<br />d: Data-package |
+| sendMessage(e, d=None)           | Send a message to Neutralino. <br />e: Event-name,<br />d: Data-package as string or JSON dict. |
+
+| Property    | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| debug       | If true,  data flow is printed to the terminal            |
+| pollSigStop | If true, then polling for long running tasks is inactive. |
+
+Events sent from the extension to the frontend:
+
+| Event        | Description                                       |
+| ------------ | ------------------------------------------------- |
+| startPolling | Starts polling lon-running tasks on the frontend. |
+| stopPolling  | Stops polling.                                    |
 
 ### python-extension.js
 
-| Method                       | Description                                                                                       |
-|------------------------------|---------------------------------------------------------------------------------------------------|
-| PythonExtension(debug=false) | Extension class. debug: Print data flow to the dev-console.                                       |
-| async run(f, p=null)         | Call a Python function. f: Function-name, p: Parameter data package as string or JSON.            |
-| async stop()                 | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+PythonExtension Class:
+
+| Method               | Description                                                  |
+| -------------------- | ------------------------------------------------------------ |
+| async run(f, p=null) | Call a Python function. f: Function-name, p: Parameter data package as string or JSON. |
+| async stop()         | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+
+| Property    | Description                                               |
+| ----------- | --------------------------------------------------------- |
+| debug       | If true,  data flow is printed to the dev-console.        |
+| pollSigStop | If true, then polling for long running tasks is inactive. |
+
+Events, sent from the frontend to the extension:
+
+| Event    | Description                                                  |
+| -------- | ------------------------------------------------------------ |
+| appClose | Notifies the extension, that the app will close. This quits the extension. |
+| poll     | Forces the extsension to process the long-running task's message queue. |
 
 ## More about Neutralino
+
 - <u>[NeutralinoJS Home](https://neutralino.js.org)</u> 
 - <u>[Neutralino Build Automation for macOS, Windows, Linux](https://github.com/hschneider/neutralino-build-scripts)</u>
 

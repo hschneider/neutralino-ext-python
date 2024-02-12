@@ -12,12 +12,13 @@ from argparse import *
 import uuid, json, time, asyncio, sys, os, signal, subprocess
 from simple_websocket import *
 from queue import Queue
+from threading import Thread
 
 
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.2.1"
+        self.version = "1.2.2"
 
         self.debug = debug
         self.debugTermColors = True             # Use terminal colors
@@ -125,6 +126,17 @@ class NeutralinoExtension:
         except (KeyboardInterrupt, EOFError, ConnectionClosed):
             self.debugLog('WebSocket closed.')
             await self.socket.close()
+
+    def runThread(self, f, t, d):
+        """
+        Start a threaded background task.
+        fn: Task function
+        t: Task name
+        d: Data to process
+        """
+        thread = Thread(target=f, name=t, args=(d,))
+        thread.daemon = True
+        thread.start()
 
     def parseFunctionCall(self, d):
         """

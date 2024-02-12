@@ -8,6 +8,17 @@ from NeutralinoExtension import *
 
 DEBUG = True    # Print incoming event messages to the console
 
+def taskLongRun(d):
+    #
+    # Simulate a long running task.
+    # Progress messages are queued and polled every 500 ms from the fronted.
+
+    for i in range(5):
+        ext.sendMessage('pingResult', "Long-running task: %s / %s" % (i + 1, 5))
+        time.sleep(1)
+
+    ext.sendMessage("stopPolling")
+
 def ping(d):
     #
     # Send some data to the Neutralino app
@@ -29,6 +40,10 @@ def processAppEvent(d):
         #
         if f == 'ping':
             ping(d)
+
+        if f == 'longRun':
+            ext.sendMessage("startPolling")
+            ext.runThread(taskLongRun, 'taskLongRun', d)
 
 
 # Activate extension
