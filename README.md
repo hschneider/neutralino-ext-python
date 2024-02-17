@@ -59,8 +59,7 @@ When including the extension in your own project, make sure that your config con
 
 Next, prepare your Python environment with:
 ```commandline
-# python3 -m pip install --no-binary :all: simple-websocket
-# python3 -m pip install --no-binary :all: simple-websocket-server
+# python3 -m pip install --no-binary :all: websocket-client
 ```
 
 After this, run these commands in the ext-python folder:
