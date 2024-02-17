@@ -1,10 +1,11 @@
-# main.py 1.0.2
+# main.py 1.0.3
 #
 # Neutralino PythonExtension.
 #
-# (c)2023 Harald Schneider - marketmix.com
+# (c)2023-2024 Harald Schneider - marketmix.com
 
 from NeutralinoExtension import *
+import time
 
 DEBUG = True    # Print incoming event messages to the console
 
@@ -49,4 +50,4 @@ def processAppEvent(d):
 # Activate extension
 #
 ext = NeutralinoExtension(DEBUG)
-asyncio.run(ext.run(processAppEvent))
+ext.run(processAppEvent)

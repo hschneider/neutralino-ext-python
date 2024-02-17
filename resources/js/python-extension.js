@@ -6,16 +6,11 @@
 
 class PythonExtension {
     constructor(debug=false) {
-        this.version = '1.1.2';
+        this.version = '1.1.3';
         this.debug = debug;
 
         this.pollSigStop = true;
         this.pollID = 0;
-
-        // Init callback handlers for polling.
-        //
-        Neutralino.events.on("startPolling", this.onStartPolling);
-        Neutralino.events.on("stopPolling", this.onStopPolling);
     }
     async run(f, p=null) {
         //
@@ -49,35 +44,5 @@ class PythonExtension {
         }
         await Neutralino.extensions.dispatch(ext, event, "");
         await Neutralino.app.exit();
-    }
-
-    async onStartPolling(e)  {
-        //
-        // This starts polling long-running tasks.
-        // Since this is called back from global context,
-        // we have to refer 'RUST' instead of 'this'.
-
-        PYTHON.pollSigStop = false
-        PYTHON.pollID = setInterval(() => {
-            if(PYTHON.debug) {
-                console.log("EXT_RUST: Polling ...")
-            }
-            PYTHON.run("poll")
-            if(PYTHON.pollSigStop) {
-                clearInterval(PYTHON.pollID);
-            };
-        }, 500);
-    }
-
-    async onStopPolling(e)  {
-        //
-        // Stops polling.
-        // Since this is called back from global context,
-        // we have to refer 'RUST' instead of 'this'.
-
-        PYTHON.pollSigStop = true;
-        if(PYTHON.debug) {
-            console.log("EXT_RUST: Polling stopped!")
-        }
     }
 }
