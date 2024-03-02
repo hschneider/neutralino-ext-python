@@ -6,11 +6,17 @@
 
 class PythonExtension {
     constructor(debug=false) {
-        this.version = '1.1.3';
+        this.version = '1.1.4';
         this.debug = debug;
 
-        this.pollSigStop = true;
-        this.pollID = 0;
+        if(NL_MODE !== 'window') {
+            window.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = '';
+                PYTHON.stop();
+                return '';
+            });
+        }
     }
     async run(f, p=null) {
         //

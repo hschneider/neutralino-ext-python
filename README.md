@@ -188,10 +188,9 @@ NeutralinoExtension Class:
 | runThread(f, t, d):              | Starts a background task. <br />f: Task-function<br />t: Task-name<br />d: Data-package |
 | sendMessage(e, d=None)           | Send a message to Neutralino. <br />e: Event-name,<br />d: Data-package as string or JSON dict. |
 
-| Property    | Description                                               |
-| ----------- | --------------------------------------------------------- |
-| debug       | If true,  data flow is printed to the terminal            |
-| pollSigStop | If true, then polling for long running tasks is inactive. |
+| Property | Description                                    |
+| -------- | ---------------------------------------------- |
+| debug    | If true,  data flow is printed to the terminal |
 
 ### python-extension.js
 
@@ -200,7 +199,7 @@ PythonExtension Class:
 | Method               | Description                                                  |
 | -------------------- | ------------------------------------------------------------ |
 | async run(f, p=null) | Call a Python function. f: Function-name, p: Parameter data package as string or JSON. |
-| async stop()         | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. |
+| async stop()         | Stop and quit the Python extension and its parent app. Use this if Neutralino runs in Cloud-Mode. This is called automatically, when the browser tab is closed. |
 
 | Property | Description                                        |
 | -------- | -------------------------------------------------- |
