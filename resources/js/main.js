@@ -25,6 +25,7 @@ Neutralino.events.on("pingResult", onPingResult);
 //
 (async () => {
     await Neutralino.window.setTitle(`Neutralino PythonExtension ${NL_APPVERSION}`);
+    await Neutralino.window.show();
 })();
 
 // Init Python Extension
