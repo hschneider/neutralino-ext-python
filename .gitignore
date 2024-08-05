@@ -26,3 +26,8 @@ __pycache__
 _app_scaffolds
 build-mac.sh
 postproc-mac.sh
+/node_modules/.bin
+/node_modules
+/temp
+package.json
+package-lock.json

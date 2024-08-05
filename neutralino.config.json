@@ -41,16 +41,24 @@
     "resourcesPath": "/resources/",
     "extensionsPath": "/extensions/",
     "clientLibrary": "/resources/js/neutralino.js",
-    "binaryVersion": "5.0.0",
-    "clientVersion": "5.0.0"
+    "binaryVersion": "5.3.0",
+    "clientVersion": "5.3.0"
   },
   "extensions": [
     {
       "id": "extPython",
-      "commandDarwin": "${NL_PATH}/extensions/python/_interpreter/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
-      "commandLinux": "${NL_PATH}/extensions/python/_interpreter/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
-      "commandWindows": "${NL_PATH}\\extensions\\python\\_interpreter\\pypy3\\pypy.exe ${NL_PATH}\\extensions\\python\\main.py"
+      "commandDarwin": "${NL_PATH}/extensions/python/_interpreter/macos/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
+      "commandLinux": "${NL_PATH}/extensions/python/_interpreter/macos/python3.framework/Versions/Current/bin/python3 ${NL_PATH}/extensions/python/main.py",
+      "commandWindows": "${NL_PATH}\\extensions\\python\\_interpreter\\win\\pypy3-64bit\\pypy.exe ${NL_PATH}\\extensions\\python\\main.py"
     }
+  ],
+  "nativeAllowList": [
+    "app.*",
+    "os.*",
+    "window.*",
+    "events.*",
+    "extensions.*",
+    "debug.log"
   ],
   "buildScript": {
     "mac": {

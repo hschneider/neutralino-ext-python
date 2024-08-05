@@ -17,7 +17,7 @@ import websocket
 class NeutralinoExtension:
     def __init__(self, debug=False):
 
-        self.version = "1.2.5"
+        self.version = "1.2.6"
 
         self.debug = debug
         self.debugTermColors = True             # Use terminal colors
@@ -236,3 +236,4 @@ class NeutralinoExtension:
             return
 
         print(msg)
+
